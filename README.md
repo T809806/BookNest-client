@@ -11,8 +11,13 @@ https://book-nest-client-nu.vercel.app/
 <img width="1872" height="907" alt="image" src="https://github.com/user-attachments/assets/cd138599-ba05-4664-b02d-97085f525bc1" />
 <img width="1878" height="897" alt="image" src="https://github.com/user-attachments/assets/78d7bcc8-180f-4e95-9209-67b96c023048" />
 
+## 🔑 Demo Credentials
 
+**Email:** demo@gmail.com
 
+**Password:** 123456
+
+---
 
 ## 🚀 Features
 
