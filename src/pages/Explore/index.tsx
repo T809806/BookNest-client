@@ -16,152 +16,108 @@ interface Book {
 const Explore = () => {
   const [books, setBooks] = useState<Book[]>([]);
   const [loading, setLoading] = useState(true);
-
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("");
   const [sort, setSort] = useState("latest");
   const [page, setPage] = useState(1);
-const [totalPages, setTotalPages] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+
+  useEffect(() => {
+    setPage(1);
+  }, [search, category, sort]);
+
+  useEffect(() => {
+    fetchBooks();
+  }, [search, category, sort, page]);
 
   const fetchBooks = async () => {
-  setLoading(true); // ← এই লাইনটা নতুন যোগ করবে
+    setLoading(true);
+    try {
+      const res = await api.get("/books", {
+        params: { search, category, sort, page, limit: 8 },
+      });
+      setBooks(res.data.books || []);
+      setTotalPages(res.data.totalPages || 1);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-  try {
-    const res = await api.get("/books", {
-      params: {
-        search,
-        category,
-        sort,
-        page,
-        limit: 8,
-      },
-    });
-
-    setBooks(res.data.books);
-    setTotalPages(res.data.totalPages);
-  } catch (error) {
-    console.error(error);
-  } finally {
-    setLoading(false); 
-  }
-};
- useEffect(() => {
-  fetchBooks();
-}, [search, category, sort, page]);
-
-  if (loading) {
-  return <LoadingSpinner />;
-}
+  if (loading) return <LoadingSpinner />;
 
   return (
-    <div className="mx-auto max-w-7xl px-5 py-10">
-      {/* Heading */}
-      <h1 className="mb-8 text-center text-4xl font-bold text-emerald-700">
-        Explore Books
-      </h1>
+    <div className="min-h-screen bg-gray-50 px-4 py-10">
+      <div className="mx-auto max-w-7xl">
+        <h1 className="mb-2 text-center text-4xl font-bold text-emerald-700">Explore Books</h1>
+        <p className="mb-8 text-center text-gray-600">Discover amazing books.</p>
 
-      {/* Search + Filter */}
-      <div className="mb-8 flex flex-col gap-4 md:flex-row">
-        <select
-  value={sort}
-  onChange={(e) => setSort(e.target.value)}
-  className="rounded-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-emerald-600"
->
-  <option value="latest">Latest</option>
-  <option value="price_asc">Price: Low → High</option>
-  <option value="price_desc">Price: High → Low</option>
-</select>
+        <div className="mb-8 grid gap-4 md:grid-cols-3">
+          <input
+            type="text"
+            placeholder="Search books..."
+            value={search}
+            onChange={(e)=>setSearch(e.target.value)}
+            className="rounded-lg border p-3"
+          />
 
-        <select
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-          className="rounded-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-emerald-600"
-        >
-          <option value="">All Categories</option>
-          <option value="Novel">Novel</option>
-          <option value="Science">Science</option>
-          <option value="History">History</option>
-          <option value="Biography">Biography</option>
-          <option value="Fantasy">Fantasy</option>
-        </select>
-      </div>
+          <select value={category} onChange={(e)=>setCategory(e.target.value)} className="rounded-lg border p-3">
+            <option value="">All Categories</option>
+            <option value="Novel">Novel</option>
+            <option value="Science">Science</option>
+            <option value="History">History</option>
+            <option value="Biography">Biography</option>
+            <option value="Fantasy">Fantasy</option>
+          </select>
 
-      {/* No Books */}
-      {books.length === 0 ? (
-        <div className="py-16 text-center">
-          <h2 className="text-2xl font-semibold text-gray-600">
-            No Books Found
-          </h2>
-
-          <p className="mt-2 text-gray-500">
-            Try another search or category.
-          </p>
+          <select value={sort} onChange={(e)=>setSort(e.target.value)} className="rounded-lg border p-3">
+            <option value="latest">Latest</option>
+            <option value="price_asc">Price: Low → High</option>
+            <option value="price_desc">Price: High → Low</option>
+          </select>
         </div>
-      ) : (
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {books.map((book) => (
-            <div
-              key={book._id}
-              className="overflow-hidden rounded-xl bg-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl"
-            >
-              <img
-                src={
-                  book.image ||
-                  "https://via.placeholder.com/400x250?text=Book"
-                }
-                alt={book.title}
-                className="h-60 w-full object-cover"
-              />
 
-              <div className="p-5">
-                <h2 className="line-clamp-2 text-xl font-bold">
-                  {book.title}
-                </h2>
-
-                <p className="mt-2 text-gray-500">
-                  {book.author}
-                </p>
-
-                <p className="mt-1 text-sm font-medium text-emerald-700">
-                  {book.category}
-                </p>
-
-                <div className="mt-4 flex items-center justify-between">
-                  <span className="text-lg font-bold text-emerald-700">
-                    ৳ {book.price}
-                  </span>
-
-                  <span className="font-medium">
-                    ⭐ {book.rating}
-                  </span>
+        {books.length===0 ? (
+          <div className="py-16 text-center">
+            <h2 className="text-2xl font-semibold">No Books Found</h2>
+          </div>
+        ) : (
+          <>
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {books.map(book=>(
+                <div key={book._id} className="overflow-hidden rounded-xl bg-white shadow">
+                  <img src={book.image || "https://via.placeholder.com/400x250?text=Book"} alt={book.title} className="h-60 w-full object-cover"/>
+                  <div className="p-5">
+                    <h2 className="text-xl font-bold">{book.title}</h2>
+                    <p className="mt-2 text-gray-500">{book.author}</p>
+                    <p className="text-emerald-700">{book.category}</p>
+                    <div className="mt-4 flex justify-between">
+                      <span>৳ {book.price}</span>
+                      <span>⭐ {book.rating}</span>
+                    </div>
+                    <Link to={`/books/${book._id}`}>
+                      <button className="mt-5 w-full rounded-lg bg-emerald-700 py-2 font-semibold text-white hover:bg-emerald-800">View Details</button>
+                    </Link>
+                  </div>
                 </div>
-
-                <div className="mt-10 flex justify-center gap-2 flex-wrap">
-  {Array.from({ length: totalPages }, (_, index) => (
-    <button
-      key={index}
-      onClick={() => setPage(index + 1)}
-      className={`rounded-lg px-4 py-2 border-2 transition ${
-        page === index + 1
-          ? "bg-emerald-700 border-emerald-700 text-white"
-          : "border-emerald-700 text-emerald-700 hover:bg-emerald-700 hover:text-white"
-      }`}
-    >
-      {index + 1}
-    </button>
-  ))}
-</div>
-
-                <Link to={`/books/${book._id}`}>
-                  <button className="mt-5 w-full rounded-lg bg-emerald-700 py-2 font-semibold text-white transition hover:bg-emerald-800">
-                    View Details
-                  </button>
-                </Link>
-              </div>
+              ))}
             </div>
-          ))}
-        </div>
-      )}
+
+            <div className="mt-10 flex justify-center gap-2">
+              {Array.from({length: totalPages}, (_,i)=>(
+                <button
+                  key={i}
+                  onClick={()=>setPage(i+1)}
+                  className={page===i+1?"rounded border bg-emerald-700 px-4 py-2 text-white":"rounded border border-emerald-700 px-4 py-2 text-emerald-700"}
+                >
+                  {i+1}
+                </button>
+              ))}
+            </div>
+          </>
+        )}
+      </div>
     </div>
   );
 };
