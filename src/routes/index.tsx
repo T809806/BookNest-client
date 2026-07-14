@@ -1,13 +1,18 @@
 import { createBrowserRouter } from "react-router-dom";
 
 import MainLayout from "../layouts/MainLayout";
+
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Explore from "../pages/Explore";
 import Details from "../pages/Details";
+import AddBook from "../pages/AddBook";
+import ManageBooks from "../pages/ManageBooks";
+
 import NotFound from "../pages/NotFound";
 
+import ProtectedRoute from "./ProtectedRoute";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +39,22 @@ const router = createBrowserRouter([
       {
         path: "books/:id",
         element: <Details />,
+      },
+      {
+        path: "add-book",
+        element: (
+          <ProtectedRoute>
+            <AddBook />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "my-books",
+        element: (
+          <ProtectedRoute>
+            <ManageBooks />
+          </ProtectedRoute>
+        ),
       },
     ],
   },
