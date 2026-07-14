@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const navigate = useNavigate();
 
   const token = localStorage.getItem("token");
+
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -19,12 +22,15 @@ const Navbar = () => {
     <nav className="bg-emerald-700 text-white shadow-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo */}
-        <NavLink to="/" className="text-2xl font-bold">
+        <NavLink
+          to="/"
+          className="text-2xl font-bold tracking-wide"
+        >
           📚 BookNest
         </NavLink>
 
-        {/* Menu */}
-        <div className="flex items-center gap-6">
+        {/* Desktop Menu */}
+        <div className="hidden items-center gap-6 md:flex">
           <NavLink
             to="/"
             className={({ isActive }) =>
@@ -65,7 +71,7 @@ const Navbar = () => {
 
               <button
                 onClick={handleLogout}
-                className="rounded-lg bg-white px-4 py-2 font-medium text-emerald-700 transition hover:text-yellow-300"
+                className="rounded-lg border-2 border-white bg-emerald-700 px-5 py-2 font-semibold text-white transition duration-300 hover:text-yellow-300"
               >
                 Logout
               </button>
@@ -92,7 +98,96 @@ const Navbar = () => {
             </>
           )}
         </div>
+
+        {/* Mobile Hamburger */}
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="text-3xl md:hidden"
+        >
+          ☰
+        </button>
       </div>
+
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div className="space-y-4 bg-emerald-700 px-6 pb-6 md:hidden">
+          <NavLink
+            to="/"
+            onClick={() => setMenuOpen(false)}
+            className={({ isActive }) =>
+              `block ${isActive ? activeClass : normalClass}`
+            }
+          >
+            Home
+          </NavLink>
+
+          <NavLink
+            to="/explore"
+            onClick={() => setMenuOpen(false)}
+            className={({ isActive }) =>
+              `block ${isActive ? activeClass : normalClass}`
+            }
+          >
+            Explore Books
+          </NavLink>
+
+          {token ? (
+            <>
+              <NavLink
+                to="/add-book"
+                onClick={() => setMenuOpen(false)}
+                className={({ isActive }) =>
+                  `block ${isActive ? activeClass : normalClass}`
+                }
+              >
+                Add Book
+              </NavLink>
+
+              <NavLink
+                to="/my-books"
+                onClick={() => setMenuOpen(false)}
+                className={({ isActive }) =>
+                  `block ${isActive ? activeClass : normalClass}`
+                }
+              >
+                My Books
+              </NavLink>
+
+              <button
+                onClick={() => {
+                  handleLogout();
+                  setMenuOpen(false);
+                }}
+                className="w-full rounded-lg border-2 border-white bg-emerald-700 px-5 py-2 font-semibold text-white transition duration-300 hover:bg-emerald-800"
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <NavLink
+                to="/login"
+                onClick={() => setMenuOpen(false)}
+                className={({ isActive }) =>
+                  `block ${isActive ? activeClass : normalClass}`
+                }
+              >
+                Login
+              </NavLink>
+
+              <NavLink
+                to="/register"
+                onClick={() => setMenuOpen(false)}
+                className={({ isActive }) =>
+                  `block ${isActive ? activeClass : normalClass}`
+                }
+              >
+                Register
+              </NavLink>
+            </>
+          )}
+        </div>
+      )}
     </nav>
   );
 };

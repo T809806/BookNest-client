@@ -1,75 +1,130 @@
-# React + TypeScript + Vite
+# 📚 BookNest - Client
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+BookNest is a modern full-stack Book Management web application where users can explore books, add their own books, and manage personal collections. This repository contains the frontend of the application built with React, TypeScript, Vite, and Tailwind CSS.
 
-Currently, two official plugins are available:
+## 🌐 Live Website
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+https://book-nest-client-nu.vercel.app/
 
-## React Compiler
+## 🚀 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- User Authentication (Register & Login)
+- JWT Authentication
+- Protected Routes
+- Explore All Books
+- Search Books
+- Filter by Category
+- Sort Books
+- Pagination
+- Featured Books Section
+- Book Details Page
+- Add New Book
+- Manage My Books
+- Delete Book
+- Responsive Design
+- Loading Spinner
+- Custom 404 Page
+- Toast Notifications
 
-## Expanding the ESLint configuration
+## 🛠️ Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React 19
+- TypeScript
+- Vite
+- React Router DOM
+- Axios
+- Tailwind CSS
+- React Hot Toast
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📂 Folder Structure
 
 ```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+src
+│
+├── api
+├── assets
+├── components
+├── layouts
+├── pages
+├── routes
+├── hooks
+├── utils
+└── App.tsx
 ```
+
+## ⚙️ Environment Variables
+
+Create a `.env` file in the root directory.
+
+```env
+VITE_API_URL
+```
+
+## 📦 Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/T809806/BookNest-client.git
+```
+
+Go to the project folder
+
+```bash
+cd booknest-client
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Run locally
+
+```bash
+npm run dev
+```
+
+Build
+
+```bash
+npm run build
+```
+
+Preview
+
+```bash
+npm run preview
+```
+
+## 📸 Main Pages
+
+- Home
+- Explore Books
+- Book Details
+- Login
+- Register
+- Add Book
+- My Books
+
+## 🔒 Authentication
+
+JWT Token is stored in Local Storage.
+
+Protected Pages
+
+- Add Book
+- My Books
+
+## 👨‍💻 Developer
+
+**Tahiya Akter**
+
+Junior Frontend Developer
+
+GitHub:
+https://github.com/T809806
+
+LinkedIn:
+https://www.linkedin.com/in/tahiya-akter-webdev/
