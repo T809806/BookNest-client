@@ -134,7 +134,7 @@ const Details = () => {
 
             <Link
               to="/explore"
-              className="mt-8 inline-block rounded-lg bg-emerald-700 px-6 py-3 text-white transition hover:bg-emerald-800"
+              className="mt-8 inline-block rounded-lg bg-emerald-700 px-6 py-3 text-white transition hover:text-yellow-300"
             >
               ← Back to Explore
             </Link>
