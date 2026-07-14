@@ -9,8 +9,14 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  // Demo Login
+  const handleDemoLogin = () => {
+    setEmail("demo@gmail.com");
+    setPassword("123456");
+  };
+
   const handleLogin = async (
-    e: React.FormEvent<HTMLFormElement>
+    e: React.FormEvent
   ) => {
     e.preventDefault();
 
@@ -44,7 +50,7 @@ const Login = () => {
   };
 
   return (
-    <div className="flex min-h-[calc(100vh-80px)] items-center justify-center bg-slate-100 px-4 py-10">
+    <div className="flex min-h-screen items-center justify-center bg-gray-100 px-4 py-10">
       <div className="w-full max-w-md rounded-xl bg-white p-8 shadow-lg">
         <h1 className="mb-2 text-center text-3xl font-bold text-emerald-700">
           Welcome Back
@@ -87,13 +93,40 @@ const Login = () => {
             />
           </div>
 
+          {/* Login Button */}
           <button
             type="submit"
             className="w-full rounded-lg bg-emerald-700 py-3 font-semibold text-white transition hover:bg-emerald-800"
           >
             Login
           </button>
+
+          {/* Demo Button */}
+          <button
+            type="button"
+            onClick={handleDemoLogin}
+            className="w-full rounded-lg border-2 border-emerald-700 bg-white py-3 font-semibold text-emerald-700 transition duration-300 hover:bg-emerald-700 hover:text-white"
+          >
+            Use Demo Credentials
+          </button>
         </form>
+
+        {/* Demo Credentials */}
+        <div className="mt-6 rounded-lg border border-emerald-200 bg-emerald-50 p-4">
+          <h3 className="mb-2 font-semibold text-emerald-700">
+            Demo Credentials
+          </h3>
+
+          <p className="text-sm text-gray-700">
+            <span className="font-semibold">Email:</span>{" "}
+            demo@gmail.com
+          </p>
+
+          <p className="text-sm text-gray-700">
+            <span className="font-semibold">Password:</span>{" "}
+            123456
+          </p>
+        </div>
 
         <p className="mt-6 text-center text-gray-600">
           Don't have an account?{" "}

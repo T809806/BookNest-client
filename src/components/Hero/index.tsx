@@ -41,7 +41,7 @@ const Hero = () => {
 
             <Link
               to="/add-book"
-              className="rounded-lg border border-white px-6 py-3 font-semibold transition hover:text-yellow-300 hover:text-yellow-300"
+              className="rounded-lg border border-white px-6 py-3 font-semibold transition hover:text-yellow-300"
             >
               Add Book
             </Link>

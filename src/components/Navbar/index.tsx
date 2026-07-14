@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const navigate = useNavigate();
 
   const token = localStorage.getItem("token");
-
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleLogout = () => {
@@ -19,7 +19,7 @@ const Navbar = () => {
   const normalClass = "transition duration-200 hover:text-yellow-300";
 
   return (
-    <nav className="bg-emerald-700 text-white shadow-md">
+    <nav className="sticky top-0 z-50 bg-emerald-700 text-white shadow-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo */}
         <NavLink
@@ -49,6 +49,24 @@ const Navbar = () => {
             Explore Books
           </NavLink>
 
+          <NavLink
+            to="/about"
+            className={({ isActive }) =>
+              isActive ? activeClass : normalClass
+            }
+          >
+            About
+          </NavLink>
+
+          <NavLink
+            to="/contact"
+            className={({ isActive }) =>
+              isActive ? activeClass : normalClass
+            }
+          >
+            Contact
+          </NavLink>
+
           {token ? (
             <>
               <NavLink
@@ -71,7 +89,7 @@ const Navbar = () => {
 
               <button
                 onClick={handleLogout}
-                className="rounded-lg border-2 border-white bg-emerald-700 px-5 py-2 font-semibold text-white transition duration-300 hover:text-yellow-300"
+                className="rounded-lg border-2 border-white px-5 py-2 font-semibold transition duration-300 hover:bg-emerald-800"
               >
                 Logout
               </button>
@@ -102,9 +120,9 @@ const Navbar = () => {
         {/* Mobile Hamburger */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="text-3xl md:hidden"
+          className="md:hidden"
         >
-          ☰
+          {menuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
@@ -129,6 +147,26 @@ const Navbar = () => {
             }
           >
             Explore Books
+          </NavLink>
+
+          <NavLink
+            to="/about"
+            onClick={() => setMenuOpen(false)}
+            className={({ isActive }) =>
+              `block ${isActive ? activeClass : normalClass}`
+            }
+          >
+            About
+          </NavLink>
+
+          <NavLink
+            to="/contact"
+            onClick={() => setMenuOpen(false)}
+            className={({ isActive }) =>
+              `block ${isActive ? activeClass : normalClass}`
+            }
+          >
+            Contact
           </NavLink>
 
           {token ? (
@@ -158,7 +196,7 @@ const Navbar = () => {
                   handleLogout();
                   setMenuOpen(false);
                 }}
-                className="w-full rounded-lg border-2 border-white bg-emerald-700 px-5 py-2 font-semibold text-white transition duration-300 hover:bg-emerald-800"
+                className="w-full rounded-lg border-2 border-white px-5 py-2 font-semibold transition duration-300 hover:bg-emerald-800"
               >
                 Logout
               </button>

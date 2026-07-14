@@ -13,6 +13,8 @@ import ManageBooks from "../pages/ManageBooks";
 import NotFound from "../pages/NotFound";
 
 import ProtectedRoute from "./ProtectedRoute";
+import About from "../pages/About";
+import Contact from "../pages/Contact";
 
 const router = createBrowserRouter([
   {
@@ -56,6 +58,14 @@ const router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
+      {
+  path: "about",
+  element: <About />,
+},
+{
+  path: "contact",
+  element: <Contact />,
+},
     ],
   },
 ]);
