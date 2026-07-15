@@ -47,80 +47,82 @@ const FeaturedBooks = () => {
   }
 
   return (
-    <section className="bg-gray-50 py-20">
-      <div className="mx-auto max-w-7xl px-6">
 
-        <h2 className="text-center text-4xl font-bold text-emerald-700">
-          Featured Books
-        </h2>
+ <section className="bg-gray-50 py-20">
 
-        <p className="mt-4 text-center text-gray-600">
-          Discover our latest and most popular books.
-        </p>
+ <div className="mx-auto max-w-7xl px-6">
 
-        <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+ <h2 className="text-center text-4xl font-bold text-emerald-700"> Featured Books </h2>
+ <p className="mt-4 text-center text-gray-600"> Discover our latest and most popular books. </p>
 
-          {books.map((book) => (
-            <div
-              key={book._id}
-              className="overflow-hidden rounded-2xl bg-white shadow-md transition duration-300 hover:-translate-y-2 hover:shadow-xl"
-            >
-              <img
-                src={
-                  book.image ||
-                  "https://via.placeholder.com/400x300?text=Book"
-                }
-                alt={book.title}
-                className="h-72 w-full object-cover"
-              />
+  <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 
-              <div className="p-6">
+     {books.map((book) => (
+      <div
+      key={book._id}
+     className="overflow-hidden rounded-2xl bg-white shadow-md transition duration-300 hover:-translate-y-2 hover:shadow-xl"
+    >
+       <img
+       src={
+       book.image ||
+     "https://via.placeholder.com/400x300?text=Book"
+     }
+   alt={book.title}
+     className="h-72 w-full object-cover"
+   />
 
-                <h3 className="text-2xl font-bold">
-                  {book.title}
-                </h3>
+   <div className="p-6">
 
-                <p className="mt-2 text-gray-500">
-                  {book.author}
-                </p>
+   <h3 className="text-2xl font-bold">
+         {book.title}
+   </h3>
 
-                <p className="mt-2 text-sm font-semibold text-emerald-700">
-                  {book.category}
-                </p>
+    <p className="mt-2 text-gray-500">
+         {book.author}
+       </p>
 
-                <div className="mt-4 flex items-center justify-between">
-                  <span className="text-lg font-bold">
-                    ৳ {book.price}
-                  </span>
+   <p className="mt-2 text-sm font-semibold text-emerald-700">
+     {book.category}
+     </p>
 
-                  <span>
-                    ⭐ {book.rating}
-                  </span>
-                </div>
+     <div className="mt-4 flex items-center justify-between">
+         <span className="text-lg font-bold">
+         ৳ {book.price}
+       </span>
 
-                <Link
-                  to={`/books/${book._id}`}
-                  className="mt-6 block rounded-lg bg-emerald-700 py-3 text-center font-semibold text-white transition hover:text-yellow-300"
-                >
-                  View Details
-                </Link>
+        <span>
+   ⭐ {book.rating}
+       </span>
 
-              </div>
-            </div>
-          ))}
+   </div>
 
-        </div>
+    <Link
+         to={`/books/${book._id}`}
+      className="mt-6 block rounded-lg bg-emerald-700 py-3 text-center font-semibold text-white transition hover:text-yellow-300"
+     >
+       View Details
+     </Link>
 
-        <div className="mt-12 text-center">
-          <Link
-            to="/explore"
-           className="rounded-lg border-2 border-white bg-emerald-700 px-8 py-3 font-semibold text-white transition duration-300 hover:text-yellow-300"
-          >
-            View All Books
-          </Link>
-        </div>
+     </div>
+
+   </div>
+
+   ))}
+
+   </div>
+
+   <div className="mt-12 text-center">
+     <Link
+       to="/explore"
+      className="rounded-lg border-2 border-white bg-emerald-700 px-8 py-3 font-semibold text-white transition duration-300 hover:text-yellow-300"
+   >
+    View All Books
+   </Link>
+
+ </div>
 
       </div>
+      
     </section>
   );
 };

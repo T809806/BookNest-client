@@ -2,6 +2,7 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 
 const Newsletter = () => {
+
   const [email, setEmail] = useState("");
 
   const handleSubscribe = (
@@ -23,14 +24,12 @@ const Newsletter = () => {
     <section className="bg-gradient-to-r from-emerald-700 via-emerald-600 to-emerald-700 py-20 text-white">
       <div className="mx-auto max-w-3xl px-6 text-center">
 
-        <h2 className="text-4xl font-bold">
-          Stay Connected with BookNest
-        </h2>
+    <h2 className="text-4xl font-bold"> Stay Connected with BookNest  </h2>
 
-        <p className="mt-5 text-lg text-emerald-100">
-          Subscribe to receive updates about newly added books,
-          reading tips, and exclusive recommendations.
-        </p>
+     <p className="mt-5 text-lg text-emerald-100">
+         Subscribe to receive updates about newly added books,
+         reading tips, and exclusive recommendations.
+    </p>
 
         <form
           onSubmit={handleSubscribe}
@@ -47,15 +46,18 @@ const Newsletter = () => {
             required
           />
 
-          <button
-            type="submit"
-      className="rounded-lg border-2 border-white bg-emerald-700 px-8 py-3 font-semibold text-white transition duration-300 hover:text-yellow-300"
-          >
-            Subscribe
-          </button>
-        </form>
+     <button
+       type="submit"
+  className="rounded-lg border-2 border-white bg-emerald-700 px-8 py-3 font-semibold text-white transition duration-300 hover:text-yellow-300"
+     >
+   Subscribe
 
-      </div>
+          </button>
+
+    </form>
+
+   </div>
+
     </section>
   );
 };

@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import api from "../../api/axios";
 
 const AddBook = () => {
+
   const navigate = useNavigate();
 
   const [title, setTitle] = useState("");
@@ -78,7 +79,7 @@ const AddBook = () => {
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          {/* Title */}
+       
           <div>
             <label className="mb-2 block font-medium">
               Book Title
@@ -94,7 +95,7 @@ const AddBook = () => {
             />
           </div>
 
-          {/* Author */}
+          
           <div>
             <label className="mb-2 block font-medium">
               Author
@@ -110,7 +111,7 @@ const AddBook = () => {
             />
           </div>
 
-          {/* Category */}
+        
           <div>
             <label className="mb-2 block font-medium">
               Category
@@ -131,7 +132,7 @@ const AddBook = () => {
             </select>
           </div>
 
-          {/* Image */}
+         
           <div>
             <label className="mb-2 block font-medium">
               Cover Image URL
@@ -146,7 +147,7 @@ const AddBook = () => {
             />
           </div>
 
-          {/* Price */}
+       
           <div>
             <label className="mb-2 block font-medium">
               Price
@@ -162,7 +163,7 @@ const AddBook = () => {
             />
           </div>
 
-          {/* Rating */}
+        
           <div>
             <label className="mb-2 block font-medium">
               Rating
@@ -181,7 +182,7 @@ const AddBook = () => {
             />
           </div>
 
-          {/* Short Description */}
+        
           <div>
             <label className="mb-2 block font-medium">
               Short Description
@@ -197,7 +198,7 @@ const AddBook = () => {
             />
           </div>
 
-          {/* Full Description */}
+         
           <div>
             <label className="mb-2 block font-medium">
               Full Description
@@ -218,9 +219,10 @@ const AddBook = () => {
             className="w-full rounded-lg bg-emerald-700 py-2.5 text-base font-semibold text-white transition hover:bg-emerald-800"
           >
             Add Book
-          </button>
-        </form>
-      </div>
+  </button>
+ </form>
+ </div>
+
     </div>
   );
 };

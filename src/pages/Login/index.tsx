@@ -9,13 +9,14 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // Demo Login
+  
   const handleDemoLogin = () => {
     setEmail("demo@gmail.com");
     setPassword("123456");
   };
 
   const handleLogin = async (
+
     e: React.FormEvent
   ) => {
     e.preventDefault();
@@ -27,17 +28,17 @@ const Login = () => {
       });
 
       if (res.data.success) {
-        // Save JWT Token
+     
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("userEmail", email);
 
         toast.success("Login Successful!");
 
-        // Clear Inputs
+       
         setEmail("");
         setPassword("");
 
-        // Redirect Home
+      
         navigate("/");
       }
     } catch (error: any) {
@@ -50,18 +51,17 @@ const Login = () => {
   };
 
   return (
+
     <div className="flex min-h-screen items-center justify-center bg-gray-100 px-4 py-10">
       <div className="w-full max-w-md rounded-xl bg-white p-8 shadow-lg">
-        <h1 className="mb-2 text-center text-3xl font-bold text-emerald-700">
-          Welcome Back
-        </h1>
+        <h1 className="mb-2 text-center text-3xl font-bold text-emerald-700">  Welcome Back </h1>
 
         <p className="mb-6 text-center text-gray-500">
           Login to your BookNest account
         </p>
 
         <form onSubmit={handleLogin} className="space-y-5">
-          {/* Email */}
+        
           <div>
             <label className="mb-2 block font-medium text-gray-700">
               Email
@@ -77,7 +77,7 @@ const Login = () => {
             />
           </div>
 
-          {/* Password */}
+         
           <div>
             <label className="mb-2 block font-medium text-gray-700">
               Password
@@ -93,7 +93,7 @@ const Login = () => {
             />
           </div>
 
-          {/* Login Button */}
+     
           <button
             type="submit"
             className="w-full rounded-lg bg-emerald-700 py-3 font-semibold text-white transition hover:bg-emerald-800"
@@ -101,7 +101,7 @@ const Login = () => {
             Login
           </button>
 
-          {/* Demo Button */}
+         
           <button
             type="button"
             onClick={handleDemoLogin}
@@ -111,7 +111,7 @@ const Login = () => {
           </button>
         </form>
 
-        {/* Demo Credentials */}
+       
         <div className="mt-6 rounded-lg border border-emerald-200 bg-emerald-50 p-4">
           <h3 className="mb-2 font-semibold text-emerald-700">
             Demo Credentials

@@ -6,6 +6,7 @@ import {
 } from "react-icons/fa";
 
 const features = [
+
   {
     icon: <FaBookOpen size={42} />,
     title: "Extensive Book Collection",
@@ -35,16 +36,15 @@ const features = [
 const WhyChooseUs = () => {
   return (
     <section className="bg-gray-50 py-20">
-      <div className="mx-auto max-w-7xl px-6">
 
-        <h2 className="text-center text-4xl font-bold text-emerald-700">
-          Why Choose BookNest?
-        </h2>
+ <div className="mx-auto max-w-7xl px-6">
 
-        <p className="mx-auto mt-4 max-w-2xl text-center text-gray-600">
-          BookNest is designed to make discovering, organizing,
-          and sharing books simple, enjoyable, and reliable for every reader.
-        </p>
+  <h2 className="text-center text-4xl font-bold text-emerald-700"> Why Choose BookNest? </h2>
+
+ <p className="mx-auto mt-4 max-w-2xl text-center text-gray-600">
+     BookNest is designed to make discovering, organizing,
+     and sharing books simple, enjoyable, and reliable for every reader.
+ </p>
 
         <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
 
@@ -67,10 +67,12 @@ const WhyChooseUs = () => {
             </div>
           ))}
 
-        </div>
+   </div>
 
       </div>
+
     </section>
+
   );
 };
 

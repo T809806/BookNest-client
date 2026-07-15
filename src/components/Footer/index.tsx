@@ -11,29 +11,33 @@ import {
 import { Link } from "react-router-dom";
 
 const Footer = () => {
+
   return (
-    <footer className="bg-gradient-to-r from-emerald-950 via-emerald-900 to-emerald-950 text-emerald-100">
-      <div className="mx-auto max-w-7xl px-6 py-14">
 
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+ <footer className="bg-gradient-to-r from-emerald-950 via-emerald-900 to-emerald-950 text-emerald-100">
+ <div className="mx-auto max-w-7xl px-6 py-14">
 
-          {/* Logo */}
-          <div>
-            <div className="flex items-center gap-2">
-              <FaBookOpen className="text-3xl text-yellow-300" />
+ <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
 
-              <h2 className="text-2xl font-bold text-white">
-                BookNest
-              </h2>
-            </div>
+          
+   <div>
+  <div className="flex items-center gap-2">
+  <FaBookOpen className="text-3xl text-yellow-300" />
 
-            <p className="mt-5 leading-7">
-              Discover, organize and share your favorite books with
-              readers around the world.
-            </p>
-          </div>
+   <h2 className="text-2xl font-bold text-white"> BookNest </h2>
 
-          {/* Quick Links */}
+  </div>
+
+   <p className="mt-5 leading-7">
+
+      Discover, organize and share your favorite books with
+     readers around the world.
+
+     </p>
+
+   </div>
+
+          
           <div>
             <h3 className="mb-5 text-xl font-semibold text-white">
               Quick Links
@@ -72,7 +76,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Contact */}
+        
           <div>
             <h3 className="mb-5 text-xl font-semibold text-white">
               Contact
@@ -101,7 +105,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Social */}
+        
           <div>
             <h3 className="mb-5 text-xl font-semibold text-white">
               Follow Us
@@ -136,16 +140,17 @@ const Footer = () => {
                   <FaLinkedin />
               </a>
 
-            </div>
-          </div>
+     </div>
+     </div>
 
-        </div>
-
-        <div className="mt-12 border-t border-emerald-800 pt-6 text-center text-sm text-emerald-200">
-          © {new Date().getFullYear()} BookNest. All Rights Reserved.
+ </div>
+ 
+  <div className="mt-12 border-t border-emerald-800 pt-6 text-center text-sm text-emerald-200">
+       © {new Date().getFullYear()} BookNest. All Rights Reserved.
         </div>
 
       </div>
+
     </footer>
   );
 };

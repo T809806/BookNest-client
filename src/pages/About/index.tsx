@@ -21,6 +21,7 @@ const About = () => {
           <p className="text-gray-600">
             To connect readers with quality books through a clean, secure,
             and user-friendly platform.
+
           </p>
         </div>
 
@@ -42,9 +43,10 @@ const About = () => {
             Thousands of readers and book enthusiasts can join BookNest and
             build their personal library together.
           </p>
-        </div>
-      </div>
+  </div>
     </div>
+    </div>
+    
   );
 };
 

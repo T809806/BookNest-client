@@ -29,20 +29,21 @@ const stats = [
 ];
 
 const Statistics = () => {
+
   return (
+
     <section className="bg-emerald-700 py-20 text-white">
+
       <div className="mx-auto max-w-7xl px-6">
 
-        <h2 className="text-center text-4xl font-bold">
-          BookNest in Numbers
-        </h2>
+   <h2 className="text-center text-4xl font-bold"> BookNest in Numbers </h2>
 
-        <p className="mx-auto mt-4 max-w-2xl text-center text-emerald-100">
-          Thousands of readers trust BookNest to discover,
-          organize, and enjoy their favorite books.
-        </p>
+   <p className="mx-auto mt-4 max-w-2xl text-center text-emerald-100">
+       Thousands of readers trust BookNest to discover,
+       organize, and enjoy their favorite books.
+   </p>
 
-        <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+   <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
 
           {stats.map((item) => (
             <div
@@ -66,7 +67,9 @@ const Statistics = () => {
         </div>
 
       </div>
+
     </section>
+    
   );
 };
 

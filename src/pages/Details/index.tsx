@@ -67,7 +67,7 @@ const Details = () => {
 
         <div className="grid gap-8 md:grid-cols-2">
 
-          {/* Image */}
+          
           <div>
             <img
               src={
@@ -79,7 +79,7 @@ const Details = () => {
             />
           </div>
 
-          {/* Details */}
+          
           <div className="p-8">
 
             <h1 className="text-4xl font-bold text-emerald-700">

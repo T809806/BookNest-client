@@ -14,6 +14,7 @@ interface Book {
 }
 
 const Explore = () => {
+
   const [books, setBooks] = useState<Book[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
@@ -72,9 +73,10 @@ const Explore = () => {
           </select>
 
           <select value={sort} onChange={(e)=>setSort(e.target.value)} className="rounded-lg border p-3">
-            <option value="latest">Latest</option>
-            <option value="price_asc">Price: Low → High</option>
-            <option value="price_desc">Price: High → Low</option>
+            <option value="latest"> Latest </option>
+
+            <option value="price_asc"> Price: Low → High </option>
+            <option value="price_desc"> Price: High → Low </option>
           </select>
         </div>
 
@@ -104,19 +106,19 @@ const Explore = () => {
               ))}
             </div>
 
-            <div className="mt-10 flex justify-center gap-2">
-              {Array.from({length: totalPages}, (_,i)=>(
-                <button
-                  key={i}
-                  onClick={()=>setPage(i+1)}
-                  className={page===i+1?"rounded border bg-emerald-700 px-4 py-2 text-white":"rounded border border-emerald-700 px-4 py-2 text-emerald-700"}
-                >
-                  {i+1}
-                </button>
-              ))}
-            </div>
-          </>
-        )}
+   <div className="mt-10 flex justify-center gap-2">
+     {Array.from({length: totalPages}, (_,i)=>(
+         <button
+         key={i}
+         onClick={()=>setPage(i+1)}
+       className={page===i+1?"rounded border bg-emerald-700 px-4 py-2 text-white":"rounded border border-emerald-700 px-4 py-2 text-emerald-700"}
+      >
+   {i+1}
+   </button>
+ ))}
+   </div>
+   </>
+ )}
       </div>
     </div>
   );

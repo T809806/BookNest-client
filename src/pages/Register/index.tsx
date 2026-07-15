@@ -55,7 +55,7 @@ const Register = () => {
         </p>
 
         <form onSubmit={handleRegister} className="space-y-5">
-          {/* Name */}
+         
           <div>
             <label className="mb-2 block font-medium text-gray-700">
               Name
@@ -71,38 +71,38 @@ const Register = () => {
             />
           </div>
 
-          {/* Email */}
-          <div>
-            <label className="mb-2 block font-medium text-gray-700">
-              Email
-            </label>
+     
+  <div>
+     <label className="mb-2 block font-medium text-gray-700">
+       Email
+    </label>
 
-            <input
-              type="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              className="w-full rounded-lg border border-gray-300 p-3 outline-none transition focus:border-emerald-600"
-            />
-          </div>
+     <input
+      type="email"
+       placeholder="Enter your email"
+      value={email}
+       onChange={(e) => setEmail(e.target.value)}
+       required
+       className="w-full rounded-lg border border-gray-300 p-3 outline-none transition focus:border-emerald-600"
+       />
+     </div>
 
-          {/* Photo URL */}
-          <div>
-            <label className="mb-2 block font-medium text-gray-700">
-              Photo URL
-            </label>
+        
+     <div>
+     <label className="mb-2 block font-medium text-gray-700">
+    Photo URL
+     </label>
 
-            <input
-              type="text"
-              placeholder="Enter your photo URL"
-              value={photoURL}
-              onChange={(e) => setPhotoURL(e.target.value)}
-              className="w-full rounded-lg border border-gray-300 p-3 outline-none transition focus:border-emerald-600"
-            />
-          </div>
+     <input
+      type="text"
+        placeholder="Enter your photo URL"
+        value={photoURL}
+        onChange={(e) => setPhotoURL(e.target.value)}
+        className="w-full rounded-lg border border-gray-300 p-3 outline-none transition focus:border-emerald-600"
+      />
+  </div>
 
-          {/* Password */}
+      
           <div>
             <label className="mb-2 block font-medium text-gray-700">
               Password

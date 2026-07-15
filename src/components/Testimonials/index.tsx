@@ -9,14 +9,14 @@ const testimonials = [
       "BookNest made it incredibly easy to discover new books. The interface is clean and enjoyable to use.",
   },
   {
-    name: "Hasan Mahmud",
+    name: "Imran Nayem",
     role: "University Student",
     image: "https://i.pravatar.cc/150?img=12",
     review:
       "I use BookNest almost every week to organize my reading list. The search and categories save a lot of time.",
   },
   {
-    name: "Nusrat Jahan",
+    name: "Brinda",
     role: "Teacher",
     image: "https://i.pravatar.cc/150?img=47",
     review:
@@ -25,18 +25,19 @@ const testimonials = [
 ];
 
 const Testimonials = () => {
+
   return (
+
     <section className="bg-white py-20">
-      <div className="mx-auto max-w-7xl px-6">
 
-        <h2 className="text-center text-4xl font-bold text-emerald-700">
-          What Our Readers Say
-        </h2>
+ <div className="mx-auto max-w-7xl px-6">
 
-        <p className="mx-auto mt-4 max-w-2xl text-center text-gray-600">
-          Join thousands of readers who trust BookNest to discover,
-          organize, and enjoy great books.
-        </p>
+   <h2 className="text-center text-4xl font-bold text-emerald-700">  What Our Readers Say </h2>
+
+   <p className="mx-auto mt-4 max-w-2xl text-center text-gray-600">
+     Join thousands of readers who trust BookNest to discover,
+     organize, and enjoy great books.
+   </p>
 
         <div className="mt-14 grid gap-8 lg:grid-cols-3">
 
@@ -73,6 +74,7 @@ const Testimonials = () => {
                   <p className="text-sm text-gray-500">
                     {item.role}
                   </p>
+
                 </div>
               </div>
 
@@ -82,6 +84,7 @@ const Testimonials = () => {
         </div>
 
       </div>
+      
     </section>
   );
 };
